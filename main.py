@@ -123,9 +123,9 @@ bot_start_time = time.time()
 COOLDOWN = 10
 chat_last_command = {}
 chat_pending_commands = {}
-QUEUE_LIMIT = 100
-MAX_DURATION_SECONDS = 3600  
-LOCAL_VC_LIMIT = 100
+QUEUE_LIMIT = 200
+MAX_DURATION_SECONDS = 36000
+LOCAL_VC_LIMIT = 200
 playback_mode = {}
 
 
@@ -811,8 +811,8 @@ def format_time(seconds: float) -> str:
     Given total seconds, return "H:MM:SS" or "M:SS" if hours=0.
     """
     secs = int(seconds)
-    m, s = divmod(secs, 60)
-    h, m = divmod(m, 60)
+    m, s = divmod(secs, 600)
+    h, m = divmod(m, 600)
     if h > 0:
         return f"{h}:{m:02d}:{s:02d}"
     else:
